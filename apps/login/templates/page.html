@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/files/pass.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="limiter">
+<div class="container-login100">
+<div class="wrap-login100">
+<form class="login100-form validate-form" onsubmit="return false;">
+<span class="login100-form-title p-b-26"><span class="login100-form-title p-b-48"><img style="
+    width: 130px;
+" src="/files/logocolor.png">
+<i class="zmdi zmdi-font"></i>
+</span>
+
+</span>
+
+<div class="wrap-input100 validate-input" data-validate=" ">
+<input class="input100" type="text" name="Password" id="password">
+<span class="focus-input100" data-placeholder="Password"></span>
+</div>
+
+<div class="container-login100-form-btn">
+<div class="wrap-login100-form-btn">
+<div class="login100-form-bgbtn"></div>
+<button class="login100-form-btn" id="form-btn">
+Login
+</button>
+</div>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	
+	document.getElementById('form-btn').onclick = function(){
+
+		$.ajax({
+			url: '/login-handler',
+			type: 'get',
+			dataType: 'html',
+			data: {password: document.getElementById('password').value},
+			success: function(data){
+				data = JSON.parse(data)
+				if (data.type === 'OK'){
+					window.location.href = '/new-logs'
+				}
+				else if (data.type === 'INVALID_PASSWORD'){
+					alert('Неверный пароль')
+				}
+			}
+		})
+
+	}
+
+</script>
+
+</body>
+</html>

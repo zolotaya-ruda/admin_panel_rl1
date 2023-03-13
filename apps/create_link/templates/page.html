@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/files/style.css">
+	<link rel="stylesheet" type="text/css" href="/files/normalize.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<body class="crm_body_bg">
+
+
+ 
+
+
+<nav class="sidebar">
+<div class="logo d-flex justify-content-between">
+
+<div class="sidebar_close_icon d-lg-none">
+<i class="ti-close"></i>
+</div>
+</div>
+<ul id="sidebar_menu" class="metismenu">
+<li class="">
+<a class="has-arrow" href="/logs" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/6.svg" alt="">
+</div>
+<div class="nav_title">
+<span>Logs</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a href="/new-logs" style=" grid-gap: 0px; color: #3eaeec;
+"><i class="fa fa-reply-all" aria-hidden="true"></i>New logs</a></li>
+</ul>
+</li><li class="">
+<a class="has-arrow" href="/links" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/2.svg" alt="">
+</div>
+<div class="nav_title">
+<span>links</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a style=" grid-gap: 0px; ;
+" href="#"><i class="fa fa-plus-square" aria-hidden="true"></i>Create link</a></li>
+</ul>
+</li><li class="">
+<a class="has-arrow" href="/domains" aria-expanded="false">
+<div class="nav_icon_small">
+<img src="/files/img/3.svg" alt="">
+</div>
+<div class="nav_title">
+<span>Domains</span>
+</div>
+</a>
+<ul class="mm-collapse mm-show" style="">
+<li><a style="grid-gap: 0px; ;
+" href="/create-domain"><i class="fa fa-plus-square" aria-hidden="true"></i>Add Domain</a></li>
+</ul>
+</li>
+
+<li class="">
+<a class="has-arrow" href="/change-password" aria-expanded="false">
+<div class="nav_icon_small">
+<i class="fa fa-key" aria-hidden="true"></i>
+</div>
+<div class="nav_title">
+<span>Change password</span>
+</div>
+</a>
+ 
+
+
+</li>
+
+
+</ul>
+
+
+</nav>
+
+
+<section class="main_content dashboard_part large_header_bg">
+
+
+
+<div class="main_content_iner overly_inner ">
+<div class="container-fluid p-0 ">
+
+<div class="row">
+<div class="col-12">
+<div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+<div class="page_title_left d-flex align-items-center">
+<h3 class="f_s_25 f_w_700 dark_text mr_30">Create Link</h3>
+
+</div>
+<div class="page_title_right">
+ 
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="white_card card_height_100 mb_30 pt-4">
+<div class="white_card_body">
+<div class="QA_section">
+<div class="white_box_tittle list_header">
+<h4>Adding a link </h4>
+<div class="box_right d-flex lms_block">
+ 
+
+</div>
+</div>
+
+
+<div class="QA_table mb_30">
+
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1046px;">
+ 
+<tbody>
+
+
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 
+ </tbody>
+</table>  
+
+
+
+<div class="box_right d-flex lms_block">
+<div class="serach_field_2">
+<div class="search_inner">
+<form active="#">
+<div class="search_field">
+<input type="text" id="name" placeholder="The name of the link is here...">
+</div>
+ 
+</form>
+</div>
+</div>
+
+<div class="custom-select" style="width:200px;    margin-left: 17px;
+ ">
+  <select id="id_selector">
+    <option value="0">Select theme:</option>
+    <option value="1">Dark  theme</option>
+    <option value="2">Light  theme</option>
+ 
+  </select>
+</div>
+
+<div class="add_button ms-2 ">
+<a href="#" data-toggle="modal" data-target="#addcategory" class="btn_1" id="create-link" onclick="create_link()">Create link</a>
+</div>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer_part">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<div class="footer_iner text-center">
+<p>2023 © Admin panel -   by <a href="#"> <i class="ti-heart"></i> </a><a href="#">  JE Develops</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<style type="text/css">
+	
+	.main_content {
+    background-color: #131520;
+}
+
+</style>
+
+<style type="text/css">
+  .custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none;  
+}
+
+.select-selected {
+    background-color: #11131e;
+    border: 2px solid #3ab0e0;
+    border-radius: 10px;
+}
+
+ 
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+ 
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+ 
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 10px 16px;
+     background-color: #11131e;
+  cursor: pointer;
+}
+
+ 
+.select-items {
+  position: absolute;
+ 
+  top: 110%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+    background-color: #25293c;
+
+border-radius: 4px;
+ 
+ 
+  
+    border: 2px solid #3ab0e0;
+
+
+
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+</style>
+
+
+<script type="text/javascript">
+  var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+</script>
+
+
+<script type="text/javascript">
+	
+	function create_link(){
+		var e = document.getElementById("id_selector");
+		var value = e.value;
+		var text = e.options[e.selectedIndex].text;
+		
+		$.ajax({
+			url: '/create-link',
+			type: 'post',
+			dataType: 'html',
+			data: {name: document.getElementById('name').value, theme: text},
+			success: function(data){
+				var data = JSON.parse(data);
+				if (data.type === 'OK'){
+					window.location.href = '/links'
+				}
+			}
+		})
+	}
+
+</script>
+
+</body>
+</html>
