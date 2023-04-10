@@ -1,3 +1,4 @@
+import sqlalchemy.exc
 from sqlalchemy import Column, String, Integer, BOOLEAN
 from .connector import base, engine, session
 
@@ -81,20 +82,41 @@ class Link(base):
 
     def create(self):
         session.add(self)
-        session.commit()
-        return self
+        try:
+            session.commit()
+            return self
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
 
     def plus_transitions(self):
         self.transitions += 1
-        session.commit()
+
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
 
     def plus_participation(self):
         self.participation += 1
-        session.commit()
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
 
     def plus_logins(self):
         self.logins += 1
-        session.commit()
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
 
     @staticmethod
     def get(link):
@@ -102,7 +124,13 @@ class Link(base):
 
     @staticmethod
     def all(pagination_num):
-        session.commit()
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
+            return []
 
         data = [{
             'id': link.id,
@@ -132,7 +160,13 @@ class Link(base):
     @staticmethod
     def delete(id):
         session.delete(session.query(Link).get(int(id)))
-        session.commit()
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
+
 
 class Password(base):
     __tablename__ = 'password'
@@ -143,10 +177,15 @@ class Password(base):
     def change_password(pwd):
         password = session.query(Password).get(1)
         password.password = pwd
-        session.commit()
+        try:
+            session.commit()
+
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print(e)
+            session.rollback()
 
     @staticmethod
     def get_password():
         return session.query(Password).get(1).password
 
-#base.metadata.create_all(engine)
+# base.metadata.create_all(engine)
